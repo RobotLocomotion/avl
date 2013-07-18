@@ -18,3 +18,4 @@ add_executable(avl
 		   ${SECOND} )
 target_link_libraries(avl plotlib eispack)
 
+pods_install_executables(avl)
