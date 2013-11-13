@@ -41,14 +41,9 @@ configure:
 		   -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) ..
 
 .PHONY: install_prereqs_macports install_prereqs_homebrew install_prereqs_ubuntu
-install_prereqs_macports :
-	port install wget
 
 install_prereqs_homebrew :
-	brew install wget
-
-install_prereqs_ubuntu :
-	apt-get install wget
+	brew install gfortran
 
 clean:
 	-if [ -e pod-build/install_manifest.txt ]; then rm -f `cat pod-build/install_manifest.txt`; fi
