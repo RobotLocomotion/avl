@@ -8,28 +8,9 @@ with normal Fortran-77, C, and X-Windows support.
 Build sequence
 --------------
 
-1) Build Xplot11 library in  ./plotlib  ...
+ % make
 
- % cd plotlib
- % edit Makefile  (set compiler flags for your system)
- % make           (creates libPlt.a)
-
-
-2) Build Eispack library in ./eispack  ...
-
- % cd eispack
- % edit Makefile  (set compiler flags for your system)
- % make           (creates eispack.a)
-
-
-3) Build AVL in ./bin  ...
-
- % cd bin
- % edit Makefile  (set compiler flags for your system)
- % make avl
-
-
-The executable will appear in the bin/ directory.
+The executables will appear in the build/bin/ directory.
 
 
 Documentation
