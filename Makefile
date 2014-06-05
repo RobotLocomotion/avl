@@ -42,6 +42,9 @@ configure:
 
 .PHONY: install_prereqs_macports install_prereqs_homebrew install_prereqs_ubuntu
 
+install_prereqs_ubuntu:
+	apt-get install gfortran
+
 install_prereqs_homebrew :
 	brew install gfortran
 
