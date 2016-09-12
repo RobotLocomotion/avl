@@ -20,20 +20,9 @@
 #
 #############################################################################
 
-set(AVL_SRCS avl.f aoper.f amode.f amass.f asetup.f amake.f ainput.f
-  aoutput.f aero.f atrim.f atpforc.f aic.f cdcl.f airutil.f autil.f aplotvl.f
-  aplottp.f aplotmd.f limits.f pltops.f AVLPLT.INC hidden.f plsubs.f
-  AINDEX.INC userio.f plutil.f arrow3d.f MASKS.INC getvm.f AVL.INC matrix.f
-  spline.f sgutil.f second_g77.f $<TARGET_OBJECTS:eispack>)
-add_executable(avl ${AVL_SRCS})
-set_target_properties(avl PROPERTIES VERSION ${PROJECT_VERSION})
-target_link_libraries(avl plt)
-install(TARGETS avl DESTINATION bin)
-
-set(AVL_COPYING gpl.txt)
-install(FILES ${AVL_COPYING} DESTINATION share/doc/${PROJECT_NAME}
-  RENAME COPYING)
-
-# Disabled due to build errors.
-# set(DTEST_SRCS dtest.f)
-# add_executable(dtest ${DTEST_SRCS})
+set(CTEST_PROJECT_NAME avl)
+set(CTEST_NIGHTLY_START_TIME "00:00:00 EST")
+set(CTEST_DROP_METHOD https)
+set(CTEST_DROP_SITE drake-cdash.csail.mit.edu)
+set(CTEST_DROP_LOCATION /submit.php?project=${CTEST_PROJECT_NAME})
+set(CTEST_DROP_SITE_CDASH ON)
