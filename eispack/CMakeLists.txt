@@ -1,2 +1,10 @@
+#############################################################################
+#
+#  EISPACK
+#
+#  Copyright (C) 1983 Burton S. Garbow
+#
+#############################################################################
 
-add_library(eispack eispack.f)
+set(EISPACK_SRCS eispack.f)
+add_library(eispack OBJECT ${EISPACK_SRCS})
