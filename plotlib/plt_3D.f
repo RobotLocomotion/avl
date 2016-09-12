@@ -137,7 +137,7 @@ C              observer's viewpoint (magnitude irrelevant)   (input)
 C
 C                                        Mark Drela     July 2007
 C........................................................................
-      REAL RIP(3), RIN(3), RJN(3), RKN(3), DR(3), RI(3)
+      REAL RIP(3), RIN(3), RJN(3), RKN(3), DR(3)
 C
 C---- unit view vector perpendicular to viewing plane (towards observer)
       SOB = SQRT(ROB(1)**2 + ROB(2)**2 + ROB(3)**2)
@@ -163,10 +163,7 @@ C---- unit vector along plane's y coordinate: (view vector)X(x unit vector)
 C
 C---- go over all points
       DO 10 I=1, N
-        RI(1) = R(1,I)
-        RI(2) = R(2,I)
-        RI(3) = R(3,I)
-        RDOTR = RI(1)*RKN(1) + RI(2)*RKN(2) + RI(3)*RKN(3)
+        RDOTR = R(1,I)*RKN(1) + R(2,I)*RKN(2) + R(3,I)*RKN(3)
 C
 C------ viewing-axis component of vector
         DR(1) = RDOTR*RKN(1)
@@ -179,9 +176,9 @@ C------ projected vector scaling factor due to perspective
      &                    + (RKN(3)-ROBINV*DR(3))**2 )
 C
 C------ dot vector into plane coordinate system unit vectors, and scale
-        RP(1,I) = (RIN(1)*RI(1) + RIN(2)*RI(2) + RIN(3)*RI(3))*VSCAL
-        RP(2,I) = (RJN(1)*RI(1) + RJN(2)*RI(2) + RJN(3)*RI(3))*VSCAL
-        RP(3,I) = (RKN(1)*RI(1) + RKN(2)*RI(2) + RKN(3)*RI(3))*VSCAL
+        RP(1,I) = (RIN(1)*R(1,I) + RIN(2)*R(2,I) + RIN(3)*R(3,I))*VSCAL
+        RP(2,I) = (RJN(1)*R(1,I) + RJN(2)*R(2,I) + RJN(3)*R(3,I))*VSCAL
+        RP(3,I) = (RKN(1)*R(1,I) + RKN(2)*R(2,I) + RKN(3)*R(3,I))*VSCAL
    10 CONTINUE
 C
       RETURN

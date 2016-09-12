@@ -29,7 +29,7 @@ C
       INCLUDE 'colors.inc'
       CHARACTER INP*10
       DATA LMASK1, LMASK2 / -32640, -30584 /
-      DATA LMASK3, LMASK4/  -21846, Z'AAAA'/
+      DATA LMASK3, LMASK4/  -21846, Z'AAAAAAAA'/
 C
 C---- number of grid intervals per axis annotation interval
       NGR = 2
