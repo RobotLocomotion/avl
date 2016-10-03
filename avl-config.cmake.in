@@ -20,24 +20,12 @@
 #
 #############################################################################
 
-set(AVL_SRCS avl.f aoper.f amode.f amass.f asetup.f amake.f ainput.f
-  aoutput.f aero.f atrim.f atpforc.f aic.f cdcl.f airutil.f autil.f aplotvl.f
-  aplottp.f aplotmd.f limits.f pltops.f AVLPLT.INC hidden.f plsubs.f
-  AINDEX.INC userio.f plutil.f arrow3d.f MASKS.INC getvm.f AVL.INC matrix.f
-  spline.f sgutil.f second_g77.f $<TARGET_OBJECTS:eispack>)
-add_executable(avl ${AVL_SRCS})
-set_target_properties(avl PROPERTIES VERSION ${PROJECT_VERSION})
-target_link_libraries(avl plt)
+@PACKAGE_INIT@
 
-export(TARGETS avl FILE "${CMAKE_BINARY_DIR}/avl-targets.cmake")
+set(AVL_VERSION_MAJOR "@PROJECT_VERSION_MAJOR@")
+set(AVL_VERSION_MINOR "@PROJECT_VERSION_MINOR@")
+set(AVL_VERSION "@PROJECT_VERSION@")
 
-install(TARGETS avl EXPORT avl-targets DESTINATION bin)
-install(EXPORT avl-targets DESTINATION share/${PROJECT_NAME})
+set(AVL_FOUND TRUE)
 
-set(AVL_COPYING gpl.txt)
-install(FILES ${AVL_COPYING} DESTINATION share/doc/${PROJECT_NAME}
-  RENAME COPYING)
-
-# Disabled due to build errors.
-# set(DTEST_SRCS dtest.f)
-# add_executable(dtest ${DTEST_SRCS})
+include("${CMAKE_CURRENT_LIST_DIR}/avl-targets.cmake")
