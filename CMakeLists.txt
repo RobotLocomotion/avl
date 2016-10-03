@@ -63,4 +63,18 @@ add_subdirectory(src)
 set(AVL_DOCS avl_doc.txt version_notes.txt)
 install(FILES ${AVL_DOCS} DESTINATION share/doc/${PROJECT_NAME})
 
+include(CMakePackageConfigHelpers)
+
+configure_package_config_file(avl-config.cmake.in avl-config.cmake
+  INSTALL_DESTINATION share/${PROJECT_NAME} NO_SET_AND_CHECK_MACRO
+  NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+
+write_basic_package_version_file(avl-config-version.cmake
+  COMPATIBILITY SameMajorVersion)
+
+install(FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/avl-config.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/avl-config-version.cmake"
+  DESTINATION share/${PROJECT_NAME})
+
 include(CPack)
