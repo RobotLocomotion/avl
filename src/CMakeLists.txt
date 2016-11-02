@@ -31,11 +31,11 @@ target_link_libraries(avl plt)
 
 export(TARGETS avl FILE "${CMAKE_BINARY_DIR}/avl-targets.cmake")
 
-install(TARGETS avl EXPORT avl-targets DESTINATION bin)
-install(EXPORT avl-targets DESTINATION share/${PROJECT_NAME})
+install(TARGETS avl EXPORT avl-targets DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(EXPORT avl-targets DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 
 set(AVL_COPYING gpl.txt)
-install(FILES ${AVL_COPYING} DESTINATION share/doc/${PROJECT_NAME}
+install(FILES ${AVL_COPYING} DESTINATION ${CMAKE_INSTALL_DOCDIR}
   RENAME COPYING)
 
 # Disabled due to build errors.

@@ -56,12 +56,14 @@ if(DOUBLE_PRECISION)
   endif()
 endif()
 
+include(GNUInstallDirs)
+
 add_subdirectory(eispack)
 add_subdirectory(plotlib)
 add_subdirectory(src)
 
 set(AVL_DOCS avl_doc.txt version_notes.txt)
-install(FILES ${AVL_DOCS} DESTINATION share/doc/${PROJECT_NAME})
+install(FILES ${AVL_DOCS} DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 include(CMakePackageConfigHelpers)
 
