@@ -68,8 +68,8 @@ install(FILES ${AVL_DOCS} DESTINATION ${CMAKE_INSTALL_DOCDIR})
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(avl-config.cmake.in avl-config.cmake
-  INSTALL_DESTINATION share/${PROJECT_NAME} NO_SET_AND_CHECK_MACRO
-  NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+  INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}
+  NO_SET_AND_CHECK_MACRO NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
 write_basic_package_version_file(avl-config-version.cmake
   COMPATIBILITY SameMajorVersion)
@@ -77,6 +77,6 @@ write_basic_package_version_file(avl-config-version.cmake
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/avl-config.cmake"
   "${CMAKE_CURRENT_BINARY_DIR}/avl-config-version.cmake"
-  DESTINATION share/${PROJECT_NAME})
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 
 include(CPack)
