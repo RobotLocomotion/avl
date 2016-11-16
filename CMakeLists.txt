@@ -67,9 +67,14 @@ install(FILES ${AVL_DOCS} DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 include(CMakePackageConfigHelpers)
 
-configure_package_config_file(avl-config.cmake.in avl-config.cmake
+configure_package_config_file(avl-config.cmake.in avl-config.cmake.in
   INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}
+  PATH_VARS CMAKE_INSTALL_BINDIR
   NO_SET_AND_CHECK_MACRO NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+
+file(GENERATE
+  OUTPUT avl-config.cmake
+  INPUT "${CMAKE_CURRENT_BINARY_DIR}/avl-config.cmake.in")
 
 write_basic_package_version_file(avl-config-version.cmake
   COMPATIBILITY SameMajorVersion)
