@@ -33,7 +33,7 @@ endif()
 option(PRIMITIVE_3D_VIEW_ROUTINES
   "Add the primitive 3D-view routines" OFF)
 
-if(3D_VIEW_ROUTINES)
+if(PRIMITIVE_3D_VIEW_ROUTINES)
   set(PLT_SRCS ${PLT_SRCS} plt_3D.f)
 endif()
 
